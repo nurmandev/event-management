@@ -1,0 +1,95 @@
+User Registration:
+
+Method: POST
+URL: http://localhost:5000/api/auth/register
+Body: (JSON)
+json
+Copy code
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "123456"
+}
+User Login:
+
+Method: POST
+URL: http://localhost:5000/api/auth/login
+Body: (JSON)
+json
+Copy code
+{
+  "email": "john@example.com",
+  "password": "123456"
+}
+Create an Event:
+
+Method: POST
+URL: http://localhost:5000/api/events
+Headers:
+plaintext
+Copy code
+x-auth-token: <token>
+Body: (JSON)
+json
+Copy code
+{
+  "title": "Meeting",
+  "description": "Team meeting",
+  "date": "2023-08-25",
+  "time": "14:00"
+}
+Get All Events:
+
+Method: GET
+URL: http://localhost:5000/api/events
+Headers:
+plaintext
+Copy code
+x-auth-token: <token>
+Update an Event:
+
+Method: PUT
+URL: http://localhost:5000/api/events/<event_id>
+Headers:
+plaintext
+Copy code
+x-auth-token: <token>
+Body: (JSON)
+json
+Copy code
+{
+  "title": "Updated Meeting",
+  "description": "Updated description",
+  "date": "2023-08-26",
+  "time": "15:00"
+}
+Delete an Event:
+
+Method: DELETE
+URL: http://localhost:5000/api/events/<event_id>
+Headers:
+plaintext
+Copy code
+x-auth-token: <token>
+Invite Users to an Event:
+
+Method: POST
+URL: http://localhost:5000/api/invitations/<event_id>/invite
+Headers:
+plaintext
+Copy code
+x-auth-token: <token>
+Body: (JSON)
+json
+Copy code
+{
+  "email": "invitee@example.com"
+}
+RSVP to an Event:
+
+Method: POST
+URL: http://localhost:5000/api/invitations/<event_id>/rsvp
+Headers:
+plaintext
+Copy code
+x-auth-token: <token>
